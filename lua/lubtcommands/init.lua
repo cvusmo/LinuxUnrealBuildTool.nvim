@@ -2,8 +2,8 @@ local M = {}
 
 -- Path Configuration
 local unreal_build_script = vim.g.unreal_build_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux/Build.sh"
-local unreal_uat_script = vim.g.unreal_uat_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux/RunUAT.sh"
-local unreal_ubt_script = vim.g.unreal_ubt_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux/RunUBT.sh"
+local unreal_uat_script = vim.g.unreal_uat_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/BuildUAT.sh"
+local unreal_ubt_script = vim.g.unreal_ubt_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/BuildUBT.sh"
 local unreal_gpf_script = vim.g.unreal_gpf_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux/GenerateProjectFiles.sh"
 local unreal_editor_path = vim.g.unreal_editor_path or "/home/echo/Projects/remote/UnrealEngine/Engine/Binaries/Linux/UnrealEditor"
 local project_base_path = vim.g.unreal_project_path or "/home/echo/Projects/remote/"
