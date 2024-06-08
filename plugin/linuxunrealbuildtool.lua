@@ -13,27 +13,31 @@ vim.api.nvim_create_user_command("Start", function(opts)
 end, { nargs = 1 })
 
 vim.api.nvim_create_user_command("Build", function(opts)
-  require("lubtcommands").start(opts)
+  require("lubtcommands").build(opts)
 end, { nargs = 1 })
 
 vim.api.nvim_create_user_command("Clean", function(opts)
-  require("lubtcommands").start(opts)
+  require("lubtcommands").clean(opts)
 end, { nargs = 1 })
 
 vim.api.nvim_create_user_command("Rebuild", function(opts)
-  require("lubtcommands").start(opts)
+  require("lubtcommands").rebuild(opts)
 end, { nargs = 1 })
 
 vim.api.nvim_create_user_command("Run", function(opts)
-  require("lubtcommands").start(opts)
+  require("lubtcommands").run(opts)
 end, { nargs = 1 })
 
 vim.api.nvim_create_user_command("BuildPlugin", function(opts)
-  require("lubtcommands").start(opts)
+  require("lubtcommands").buildplugin(opts)
 end, { nargs = 1 })
 
-function setup(args)
-  print("Configuring Unreal Engine plugin")
+vim.api.nvim_create_user_command("CreateProject", function(opts)
+  require("lubtcommands").createproject(opts)
+end, { nargs = 1 })
+
+local function setup()
+  print("Configuring")
 end
 
 return {
