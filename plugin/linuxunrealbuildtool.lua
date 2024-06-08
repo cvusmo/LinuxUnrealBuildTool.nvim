@@ -37,7 +37,7 @@ vim.api.nvim_create_user_command("CreateProject", function(opts)
 end, { nargs = 1 })
 
 local function setup()
-  print("Configuring")
+  print("Configuring LinuxUnrealBuildTool")
 end
 
 return {

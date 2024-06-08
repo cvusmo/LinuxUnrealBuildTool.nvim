@@ -2,9 +2,9 @@ local M = {}
 
 -- Path Configuration
 local unreal_build_script = vim.g.unreal_build_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux/Build.sh"
-local unreal_uat_script = vim.g.unreal_uat_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/RunUAT.sh"
-local unreal_ubt_script = vim.g.unreal_ubt_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/RunUBT.sh"
-local unreal_gpf_script = vim.g.unreal_gpf_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/GenerateProjectFiles.sh"
+local unreal_uat_script = vim.g.unreal_uat_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux/RunUAT.sh"
+local unreal_ubt_script = vim.g.unreal_ubt_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux/RunUBT.sh"
+local unreal_gpf_script = vim.g.unreal_gpf_script or "/home/echo/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux/GenerateProjectFiles.sh"
 local unreal_editor_path = vim.g.unreal_editor_path or "/home/echo/Projects/remote/UnrealEngine/Engine/Binaries/Linux/UnrealEditor"
 local project_base_path = vim.g.unreal_project_path or "/home/echo/Projects/remote/"
 
@@ -92,7 +92,7 @@ function M.build(opts)
   local log_file = log_dir .. "/LUBT_" .. os.date("%Y-%m-%d_%H-%M") .. ".log"
 
   create_log_dir(log_dir)
-  create_project(name)
+  --create_project(name)
 
   print("Generating project files...")
   local gpf_cmd = unreal_gpf_script .. " -projectfiles -project=" .. project_path .. " -game -engine -progress 2>&1 | tee -a " .. log_file .. " | grep -v 'UE_DEPRECATED'"
