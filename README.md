@@ -1,25 +1,40 @@
 # LinuxUnrealBuildTool
 
-Overview:
-@TODO
+Welcome to Linux Unreal Build Tool by cvusmo. LinuxUnrealBuildTool is a work in progress aimed at enhancing the Unreal Engine development experience on Linux, specifically integrated with Neovim. The plugin offers a simple yet powerful set of commands to streamline common tasks:
 
-Navigation:
+### Features:
+
+- **Clean:** Remove previous build artifacts to ensure a fresh start.
+- **Build:** Compile your project efficiently.
+- **Rebuild:** Clean and build your project in one step.
+- **Create New Blank C++ Projects:** Quickly set up new C++ projects.
+- **Install Plugins:** Easily manage and install plugins.
+
+### Usage
+
+All functionalities are accessible via commands in Neovim, making it an ideal tool for developers who prefer a terminal-based workflow.
+
+### Navigation:
+
 - [Section ᴎ - Before you begin](#section-ᴎ)
 - [Section I - Build from Source](#section-i)
 - [Section II - Neovim Integration](#section-ii)
 - [Section III](#section-iii)
 
 ## Section ᴎ 
-Before you Begin
 
+<<<<<<< HEAD
 Arch users beware... building from source from the github nets a frustrating time. The best way I've been able to build a reliable engine is by using the AUR. It's simple.
 I'm not going to tell you to read the F**KING WIKI. I'm just going to paraphrase it, so you can read it here (ironic, isn't it):
+=======
+This guide is designed to be simple and easy to follow. I would recommend reading each section before you execute any commands. If you don't know what a command does, look at the wiki, ask google, ask a friend, or chatgpt. I'm not responsible if you enter a command and it deletes something. 
+>>>>>>> 78cc939 (features added, and overview complete. sections being written as i actively test.)
 
-```bash
-git clone https://aur.archlinux.org/packages/unreal-engine-bin.git
+### Contributing
 
-Download the zip file manually. Vrify which engine version as of this article, it was [Linux_Unreal_Engine_5.4.1.zip].
+With that out of the way, I'm moving away from IDE's and wanting to develop with neovim. Part of that is creating plugins like this to help make things a bit easier. If you encounter issues or need to install these dependencies on another distribution, or to contribute to the plugin, open an issue:
 
+<<<<<<< HEAD
 https://www.unrealengine.com/linux
 
 Download and save the *.zip into the unreal-engine-bin folder.
@@ -28,6 +43,43 @@ makepkg -si
 ```
 
 @TODO 
+=======
+```
+- Navigate to https://www.github.com/cvusmo/linuxunrealbuildtool.nvim
+- Click on the "Issues" tab.
+- Click "New issue".
+- Fill in the title and provide any relevant information or questions.
+- Click "Submit new issue".
+```
+
+### Dependencies:
+
+```
+git base-devel clang cmake ispc dotnet-runtime-6.0 neovim
+```
+
+Arch:
+```
+sudo pacman -S git base-devel clang cmake ispc dotnet-runtime-6.0 
+```
+
+Debian/Ubuntu:
+```
+sudo apt update
+sudo apt install git build-essential clang cmake ispc dotnet-runtime-6.0
+```
+
+Fedora:
+```
+sudo dnf install git @development-tools clang cmake ispc dotnet-runtime-6.0
+```
+
+openSUSE:
+```
+sudo zypper install git gcc gcc-c++ make automake cmake clang ispc dotnet-runtime-6.0
+```
+
+>>>>>>> 78cc939 (features added, and overview complete. sections being written as i actively test.)
 ## Section I 
 Build from Source
 
