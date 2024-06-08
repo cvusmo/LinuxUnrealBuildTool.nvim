@@ -13,7 +13,7 @@ Navigation:
 Before you Begin
 
 Arch users beware... building from source from the github nets a frustrating time. The best way I've been able to build a reliable engine is by using the AUR. It's simple.
-Unlike Sigma Arch users I'm not going to tell you to read the AUR. I'm just going to quote it, so you can read it here:
+I'm not going to tell you to read the F**KING WIKI. I'm just going to paraphrase it, so you can read it here (ironic, isn't it):
 
 ```bash
 git clone https://aur.archlinux.org/packages/unreal-engine-bin.git
@@ -23,9 +23,9 @@ Download the zip file manually. Vrify which engine version as of this article, i
 https://www.unrealengine.com/linux
 
 Download and save the *.zip into the unreal-engine-bin folder.
+
 makepkg -si
 ```
-
 
 @TODO 
 ## Section I 
@@ -143,3 +143,5 @@ cd /home/$USER/PATH/TO/HERE/UnrealEngine/Engine/Binaries/Linux
 Neovim Integration
 
 @TODO
+
+Now that you've built it from source or the AUR, it's time to setup neovim.
