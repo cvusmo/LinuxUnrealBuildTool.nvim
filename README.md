@@ -14,6 +14,22 @@ Welcome to Linux Unreal Build Tool by cvusmo. LinuxUnrealBuildTool is a work in 
 
 All functionalities are accessible via commands in Neovim, making it an ideal tool for developers who prefer a terminal-based workflow.
 
+Lazyvim:
+```
+return {
+  {
+    "cvusmo/LinuxUnrealBuildTool.nvim",
+    event = "VeryLazy",
+    config = function()
+      require('linuxunrealbuildtool').setup({
+        project_path = "/home/bob/path/to/project",
+        unreal_engine_path = "/home/bob/path/to/unrealengine"
+      })
+    end,
+  },
+}
+```
+
 ### Navigation:
 
 - [Section ᴎ - Before you begin](#section-ᴎ)

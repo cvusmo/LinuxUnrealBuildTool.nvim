@@ -1,16 +1,17 @@
- local M = {}
+local M = {}
 
- -- Load modules
- local path = require("linuxunrealbuildtool.path")
- local log = require("linuxunrealbuildtool.log")
- local commands = require("linuxunrealbuildtool.commands")
+local config = require("linuxunrealbuildtool.config")
 
- -- f(initialize)
- local function init()
-   local paths = path.init_paths()
-   log.setup()
+-- f(init)
+local function init(user_config)
+  if user_config then
+    config.set_paths(user_config)
+  end
 
-   if not paths.unreal_build_tool
+  local paths = require("linuxunrealbuildtool.path").init_paths()
+  require("linuxunrealbuildtool.log").setup()
+
+  if not paths.unreal_build_tool
      or not paths.setup
      or not paths.fix_dependency_files
      or not paths.update_deps
@@ -19,13 +20,13 @@
       return
     end
 
-   print("Paths initialized")
+  print("Paths initialized successfully")
 end
 
  --f(setup)
-local function setup()
-  init()
-  commands.setup()
+local function setup(user_config)
+  init(user_config)
+  require("linuxunrealbuildtool.commands").setup()
   print("Configuring LinuxUnrealBuildTool")
 end
 
