@@ -15,9 +15,9 @@ vim.api.nvim_create_user_command("LUBT", function(opts)
     args = vim.split(opts.args, " ")
   end
   local command = args[1]
-  print("Received command: " .. (command or "nil"))
-  print("Sub options: " .. vim.inspect({ args = table.concat(args, " ") }))
-  
+  -- debug-tools
+  --print("Received command: " .. (command or "nil"))
+  --print("Sub options: " .. vim.inspect({ args = table.concat(args, " ") }))
   table.remove(args, 1)
   local sub_opts = { args = table.concat(args, " ") }
 
