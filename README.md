@@ -4,7 +4,7 @@
 	<img src="https://dotfyle.com/plugins/cvusmo/LinuxUnrealBuildTool.nvim/shield?style=flat" />
 </a>
 
-Welcome to Linux Unreal Build Tool by cvusmo. LinuxUnrealBuildTool is a work in progress aimed at enhancing the Unreal Engine development experience on Linux, specifically integrated with Neovim. The plugin offers a simple yet powerful set of commands to streamline common tasks:
+Welcome to Linux Unreal Build Tool is a work in progress aimed at enhancing the Unreal Engine development experience on Linux, specifically integrated with Neovim. The plugin offers a simple yet powerful set of commands to streamline common tasks:
 
 ### Features:
 
