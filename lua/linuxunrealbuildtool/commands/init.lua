@@ -15,36 +15,24 @@ vim.api.nvim_create_user_command("LUBT", function(opts)
     args = vim.split(opts.args, " ")
   end
   local command = args[1]
-  -- debug-tools
-  --print("Received command: " .. (command or "nil"))
-  --print("Sub options: " .. vim.inspect({ args = table.concat(args, " ") }))
   table.remove(args, 1)
-  local sub_opts = { args = table.concat(args, " ") }
 
   if command == "DEVTEST" then
-    print("Running DEVTEST")
     require("linuxunrealbuildtool.commands.dev_test").devtest()
   elseif command == "Clean" then
-    print("Running Clean")
-    require("linuxunrealbuildtool.commands.clean").clean(sub_opts)
+    require("linuxunrealbuildtool.commands.clean").clean(args)
   elseif command == "Build" then
-    print("Running Build")
-    require("linuxunrealbuildtool.commands.build").build(sub_opts)
+    require("linuxunrealbuildtool.commands.build").build(args)
   elseif command == "Rebuild" then
-    print("Running Rebuild")
-    require("linuxunrealbuildtool.commands.rebuild").rebuild(sub_opts)
+    require("linuxunrealbuildtool.commands.rebuild").rebuild(args)
   elseif command == "Run" then
-    print("Running Run")
-    require("linuxunrealbuildtool.commands.run_project").run_project(sub_opts)
+    require("linuxunrealbuildtool.commands.run_project").run_project(args)
   elseif command == "CreateProject" then
-    print("Running CreateProject")
-    require("linuxunrealbuildtool.commands.create_project").create_project(sub_opts)
+    require("linuxunrealbuildtool.commands.create_project").create_project(args)
   elseif command == "InstallPlugins" then
-    print("Running InstallPlugins")
-    require("linuxunrealbuildtool.commands.install_plugins").install_plugins(sub_opts)
+    require("linuxunrealbuildtool.commands.install_plugins").install_plugins(args)
   elseif command == "Help" then
-    print("Running Help")
-    require("linuxunrealbuildtool.commands.help").help(sub_opts)
+    require("linuxunrealbuildtool.commands.help").help(args)
   else
     print("LUBT command does not exist. Please use :LUBT Help for list of commands")
   end
@@ -57,3 +45,4 @@ end
 return {
   setup = setup
 }
+

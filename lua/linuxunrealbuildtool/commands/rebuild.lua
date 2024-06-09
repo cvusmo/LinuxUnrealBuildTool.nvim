@@ -1,7 +1,7 @@
 local M = {}
 
-function M.rebuild()
-  print("Rebuild command is in active development...")
+function M.rebuild(args)
+  print("Running Rebuild with args: " .. vim.inspect(args))
 end
 
 return M
