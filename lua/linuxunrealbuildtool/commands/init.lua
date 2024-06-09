@@ -10,15 +10,18 @@ end
 vim.g.loaded_lubtnvim = 1
 
 vim.api.nvim_create_user_command("LUBT", function(opts)
-  local args = {} 
+  local args = {}
   if opts.args then
-    arg = vim.split(opts.args, " ")
+    args = vim.split(opts.args, " ")
   end
   local command = args[1]
+  print("Received command: " .. (command or "nil"))
   table.remove(args, 1)
   local sub_opts = { args = table.concat(args, " ") }
+  print("Sub options: " .. vim.inspect(sub_opts))
 
   if command == "DEVTEST" then
+    print("Running DEVTEST")
     require("linuxunrealbuildtool.commands.dev_test").devtest()
   elseif command == "Clean" then
     require("linuxunrealbuildtool.commands.clean").clean(sub_opts)
