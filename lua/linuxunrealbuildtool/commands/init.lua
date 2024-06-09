@@ -10,13 +10,16 @@ end
 vim.g.loaded_lubtnvim = 1
 
 vim.api.nvim_create_user_command("LUBT", function(opts)
-  local args = vim.split(opts.arg, " ")
+  local args = {} 
+  if opts.args then
+    arg = vim.split(opts.args, " ")
+  end
   local command = args[1]
   table.remove(args, 1)
   local sub_opts = { args = table.concat(args, " ") }
 
   if command == "DEVTEST" then
-    require("linuxunrealbuildtool.commands.dev_test").devtest(sub_opts)
+    require("linuxunrealbuildtool.commands.dev_test").devtest()
   elseif command == "Clean" then
     require("linuxunrealbuildtool.commands.clean").clean(sub_opts)
   elseif command == "Build" then
