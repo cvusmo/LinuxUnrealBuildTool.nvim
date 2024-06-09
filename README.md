@@ -1,7 +1,5 @@
 # LinuxUnrealBuildTool
 
-# LinuxUnrealBuildTool.nvim/lua/linuxunrealbuildtool
-
 <a href="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool"><img src="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool"><img src="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool"><img src="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool/badges/plugin-manager?style=flat" /></a>
