@@ -1,4 +1,4 @@
-local log = require("cvusmo.linuxunrealbuildtool.log")
+local log = require("linuxunrealbuildtool.log")
 
 local M = {}
 
