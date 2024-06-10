@@ -1,6 +1,5 @@
-local log = require("cvusmo.linuxunrealbuildtool.log")
-local path = require("cvusmo.linuxunrealbuildtool.path")
-local config = require("cvusmo.linuxunrealbuildtool.config")
+local log = require("linuxunrealbuildtool.log")
+local path = require("linuxunrealbuildtool.path")
 
 local M = {}
 
