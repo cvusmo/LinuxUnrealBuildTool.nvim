@@ -9,6 +9,12 @@ local function log_message(message)
   log.log_message(message)
 end
 
+-- f(progress)
+local function progress(current_step, total_steps)
+  local percentage = math.floor((current_step * 100) / total_steps)
+  log_message("Progress: " .. percentage .. "% completed")
+end
+
 -- f(clean)
 function M.clean(args)
   print("Running clean command...")
@@ -27,10 +33,14 @@ function M.clean(args)
 
   log.log_trashcollector()
 
+  local total_steps = 7
+  local current_step = 0
+
   log_message("Cleaning previous build...")
   print("Project path: " .. project_root)
   print("Log file: " .. log_file)
 
+  -- Execute the clean command
   local clean_command = "rm -rf " .. project_root .. "/Binaries " ..
                         project_root .. "/Intermediate " ..
                         project_root .. "/Saved " ..
@@ -41,7 +51,18 @@ function M.clean(args)
   local result = os.execute(clean_command)
   print("Clean command executed with result: " .. tostring(result))
 
+  current_step = current_step + 1
+  progress(current_step, total_steps)
+
+  current_step = current_step + 1
+  progress(current_step, total_steps)
+
+  local start_time = os.time()
+  local end_time = os.time()
+  log_message("Total script execution time: " .. os.difftime(end_time, start_time) .. " seconds")
+
   log_message("Clean command executed.")
+  log.log_trashcollector()
 end
 
 return M
