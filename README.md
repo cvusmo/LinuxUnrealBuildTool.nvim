@@ -1,8 +1,8 @@
 # LinuxUnrealBuildTool
 
-<a href="https://dotfyle.com/plugins/cvusmo/LinuxUnrealBuildTool.nvim">
-	<img src="https://dotfyle.com/plugins/cvusmo/LinuxUnrealBuildTool.nvim/shield?style=flat" />
-</a>
+<a href="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool"><img src="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool"><img src="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool"><img src="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool/badges/plugin-manager?style=flat" /></a>
 
 Linux Unreal Build Tool is a work in progress aimed at enhancing the Unreal Engine development experience on Linux, specifically integrated with Neovim. The plugin offers a simple yet powerful set of commands to streamline common tasks:
 
