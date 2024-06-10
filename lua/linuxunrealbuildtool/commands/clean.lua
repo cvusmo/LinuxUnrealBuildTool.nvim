@@ -40,14 +40,13 @@ function M.clean(args)
   print("Project path: " .. project_path)
   print("Log file: " .. log_file)
 
-  -- List directories before deletion for verification
   os.execute("ls -l " .. project_path .. " | tee -a " .. log_file)
 
-  -- Execute the clean command
   local clean_command = "rm -rf " .. project_path .. "/Binaries " ..
                         project_path .. "/Intermediate " ..
                         project_path .. "/Saved " ..
                         project_path .. "/.vscode " ..
+                        project_path .. "/DerivedDataCache " ..
                         project_path .. "/" .. project_name .. ".code-workspace" ..
                         " | tee -a " .. log_file
   print("Executing command: " .. clean_command)
