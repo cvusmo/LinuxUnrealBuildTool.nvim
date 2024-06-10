@@ -40,6 +40,9 @@ function M.clean(args)
   print("Project path: " .. project_root)
   print("Log file: " .. log_file)
 
+  -- List directories before deletion for verification
+  os.execute("ls -l " .. project_root .. " | tee -a " .. log_file)
+
   -- Execute the clean command
   local clean_command = "rm -rf " .. project_root .. "/Binaries " ..
                         project_root .. "/Intermediate " ..
@@ -50,6 +53,9 @@ function M.clean(args)
   print("Executing command: " .. clean_command)
   local result = os.execute(clean_command)
   print("Clean command executed with result: " .. tostring(result))
+
+  -- List directories after deletion for verification
+  os.execute("ls -l " .. project_root .. " | tee -a " .. log_file)
 
   current_step = current_step + 1
   progress(current_step, total_steps)
