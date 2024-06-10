@@ -15,7 +15,7 @@ local function setup(user_config)
     config.set_paths(user_config)
   end
   init_paths()
-  log.setup()
+  log.setup("log_suffix", config.project_root)
   commands.setup()
   print("Configuring LinuxUnrealBuildTool")
 end
