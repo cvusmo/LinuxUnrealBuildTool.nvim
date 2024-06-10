@@ -1,5 +1,3 @@
-local path = require("linuxunrealbuildtool.path")
-
 local M = {}
 
 local log_dir = ""
