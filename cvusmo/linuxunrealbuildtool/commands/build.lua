@@ -1,6 +1,6 @@
-local log = require("linuxunrealbuildtool.log")
-local path = require("linuxunrealbuildtool.path")
-local config = require("linuxunrealbuildtool.config")
+local log = require("cvusmo.linuxunrealbuildtool.log")
+local path = require("cvusmo.linuxunrealbuildtool.path")
+local config = require("cvusmo.linuxunrealbuildtool.config")
 
 local M = {}
 
@@ -53,18 +53,20 @@ function M.build(args)
   run_step(paths.update_deps, "Running UpdateDeps.sh")
 
   log_message("Generating project files and Makefile...")
-  local gpf_command = "pgrep -f UnrealBuildTool | xargs kill -9 && " .. 
-                      paths.unreal_build_tool .. " -projectfiles -project=" 
-                      .. project_path .. "/" .. project_name .. 
+  local gpf_command = "pgrep -f UnrealBuildTool | xargs kill -9 && " ..
+                      paths.unreal_build_tool .. " -projectfiles -project="
+                      .. project_path .. "/" .. project_name ..
                       ".uproject -game -makefile | tee -a " .. log_file
   os.execute(gpf_command)
 
   log_message("Building project in Development mode...")
   os.execute("pgrep -f UnrealBuildTool | xargs kill -9 && make VERBOSE=1 UnrealEditor | tee -a " .. log_file)
-  
+
   local total_end_time = os.time()
   log_message("Total script execution time: " .. os.difftime(total_end_time, start_time) .. " seconds")
   log_message("Project " .. project_name .. " successfully built.")
 
   log.log_trashcollector()
 end
+
+return M
