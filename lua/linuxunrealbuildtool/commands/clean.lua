@@ -51,4 +51,15 @@ function M.clean(args)
                         project_path .. "/" .. project_name .. ".code-workspace" ..
                         " | tee -a " .. log_file
   print("Executing command: " .. clean_command)
-  local result
+  local result = os.execute(clean_command)
+
+  if result then
+    log_message("Clean command executed successfully.")
+  else
+    log_message("Clean command failed.")
+  end
+
+  progress(current_step, total_steps)
+end
+
+return M
