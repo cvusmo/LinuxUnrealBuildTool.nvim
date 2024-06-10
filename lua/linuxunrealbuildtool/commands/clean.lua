@@ -20,7 +20,7 @@ function M.clean(args)
 
   print("Initializing paths...")
   local paths = path.init_paths()
-  local project_path = config.project_root .. "/" .. project_name
+  local project_root = config.project_root .. "/" .. project_name
   local log_suffix = "Clean"
   log.setup(log_suffix)
   local log_file = log.get_log_file()
@@ -28,14 +28,14 @@ function M.clean(args)
   log.log_trashcollector()
 
   log_message("Cleaning previous build...")
-  print("Project path: " .. project_path)
+  print("Project path: " .. project_root)
   print("Log file: " .. log_file)
 
-  local clean_command = "rm -rf " .. project_path .. "/Binaries " ..
-                        project_path .. "/Intermediate " ..
-                        project_path .. "/Saved " ..
-                        project_path .. "/.vscode " ..
-                        project_path .. "/" .. project_name .. ".code-workspace" ..
+  local clean_command = "rm -rf " .. project_root .. "/Binaries " ..
+                        project_root .. "/Intermediate " ..
+                        project_root .. "/Saved " ..
+                        project_root .. "/.vscode " ..
+                        project_root .. "/" .. project_name .. ".code-workspace" ..
                         " | tee -a " .. log_file
   print("Executing command: " .. clean_command)
   local result = os.execute(clean_command)
