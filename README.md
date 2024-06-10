@@ -218,4 +218,3 @@ Neovim Integration
 | `:LUBT CreateProject`  | Creates a new project            | `<ProjectName>` |
 | `:LUBT InstallPlugins` | Installs plugins for the project | `<ProjectName>` |
 | `:LUBT Help`           | Shows the help message           | None            |
-
