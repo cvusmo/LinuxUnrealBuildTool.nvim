@@ -4,8 +4,8 @@ local config = {
 }
 
 function config.set_paths(paths)
-  if paths.project_path then
-    config.project_root = paths.project_path
+  if paths.project_root then
+    config.project_root = paths.project_root
   end
   if paths.unreal_engine_path then
     config.unreal_engine_path = paths.unreal_engine_path

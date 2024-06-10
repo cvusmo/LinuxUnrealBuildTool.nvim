@@ -1,19 +1,22 @@
 local M = {}
 
-local log_dir = os.getenv("HOME") .. "/Projects/remote/Log"
-local log_file = log_dir .. "/" .. os.date("%Y-%m-%d_%H-%M-%S") .. "_General.log"
+local log_dir = ""
+local log_file = ""
 
 -- f(logdir)
-function M.setup(log_suffix)
-  if log_suffix then
-    log_file = log_dir .. "/" .. os.date("%Y-%m-%d_%H-%M-%S") .. "_" .. log_suffix .. ".log"
-  end
-
+function M.setup(log_suffix, project_path)
+  log_dir = project_path .. "/Log"
+  log_file = log_dir .. "/" .. os.date("%Y-%m-%d_%H-%M-%S") .. "_" .. log_suffix .. ".log"
   if log_dir then
-  os.execute("mkdir -p " .. log_dir)
+    os.execute("mkdir -p " .. log_dir)
   else
     print("Error: log_dir is nil")
   end
+end
+
+-- f(get_log_file)
+function M.get_log_file()
+  return log_file
 end
 
 -- f(logmessages)
