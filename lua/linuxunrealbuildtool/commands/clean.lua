@@ -23,9 +23,9 @@ function M.clean(args)
 
   log.log_trashcollector()
 
-  local total_steps = 7
+  local total_steps = 1
   progress.init(total_steps, project_path, log_suffix)
-  local current_step = 1
+  local current_step = 0
 
   log.log_message("Cleaning previous build...")
   print("Project path: " .. project_path)
