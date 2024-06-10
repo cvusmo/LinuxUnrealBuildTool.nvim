@@ -1,9 +1,9 @@
 local M = {}
 
-local config = require("linuxunrealbuildtool.config")
-local path = require("linuxunrealbuildtool.path")
-local log = require("linuxunrealbuildtool.log")
-local commands = require("linuxunrealbuildtool.commands")
+local config = require("cvusmo.linuxunrealbuildtool.config")
+local path = require("cvusmo.linuxunrealbuildtool.path")
+local log = require("cvusmo.linuxunrealbuildtool.log")
+local commands = require("cvusmo.linuxunrealbuildtool.commands")
 
 local function init_paths()
   local paths = path.init_paths()

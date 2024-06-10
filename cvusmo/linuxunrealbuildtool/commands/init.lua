@@ -18,21 +18,21 @@ vim.api.nvim_create_user_command("LUBT", function(opts)
   table.remove(args, 1)
 
   if command == "DEVTEST" then
-    require("linuxunrealbuildtool.commands.dev_test").devtest()
+    require("cvusmo.linuxunrealbuildtool.commands.dev_test").devtest()
   elseif command == "Clean" then
-    require("linuxunrealbuildtool.commands.clean").clean(args)
+    require("cvusmo.linuxunrealbuildtool.commands.clean").clean(args)
   elseif command == "Build" then
-    require("linuxunrealbuildtool.commands.build").build(args)
+    require("cvusmo.linuxunrealbuildtool.commands.build").build(args)
   elseif command == "Rebuild" then
-    require("linuxunrealbuildtool.commands.rebuild").rebuild(args)
+    require("cvusmo.linuxunrealbuildtool.commands.rebuild").rebuild(args)
   elseif command == "Run" then
-    require("linuxunrealbuildtool.commands.run_project").run_project(args)
+    require("cvusmo.linuxunrealbuildtool.commands.run_project").run_project(args)
   elseif command == "CreateProject" then
-    require("linuxunrealbuildtool.commands.create_project").create_project(args)
+    require("cvusmo.linuxunrealbuildtool.commands.create_project").create_project(args)
   elseif command == "InstallPlugins" then
-    require("linuxunrealbuildtool.commands.install_plugins").install_plugins(args)
+    require("cvusmo.linuxunrealbuildtool.commands.install_plugins").install_plugins(args)
   elseif command == "Help" then
-    require("linuxunrealbuildtool.commands.help").help(args)
+    require("cvusmo.linuxunrealbuildtool.commands.help").help(args)
   else
     print("LUBT command does not exist. Please use :LUBT Help for list of commands")
   end
