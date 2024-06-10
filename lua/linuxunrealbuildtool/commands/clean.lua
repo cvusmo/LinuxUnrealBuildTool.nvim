@@ -49,7 +49,7 @@ function M.clean(args)
     log.log_message("Clean command failed.")
   end
 
-  progress(current_step)
+  progress.update(current_step)
 end
 
 return M
