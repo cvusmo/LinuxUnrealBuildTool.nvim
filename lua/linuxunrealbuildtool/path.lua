@@ -15,7 +15,7 @@ end
 function M.init_paths()
   local search_paths = {
     os.getenv("HOME") .. "/Projects/remote/UnrealEngine/Engine/Build/BatchFiles",
-    os.getenv("HOME") .. "/Projects/remote/unrealEngine/Engine/Build/BatchFiles/Linux",
+    os.getenv("HOME") .. "/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux",
     os.getenv("HOME") .. "/Projects/remote/UnrealEngine/Engine/Binaries/Linux",
     os.getenv("HOME") .. "/Projects/remote"
   }

@@ -26,9 +26,9 @@ function M.clean(args)
 
   print("Initializing paths...")
   local paths = path.init_paths()
-  local project_root = config.project_root .. "/" .. project_name
+  local project_path = config.project_root .. "/" .. project_name
   local log_suffix = "Clean"
-  log.setup(log_suffix)
+  log.setup(log_suffix, project_path)
   local log_file = log.get_log_file()
 
   log.log_trashcollector()
@@ -37,38 +37,28 @@ function M.clean(args)
   local current_step = 0
 
   log_message("Cleaning previous build...")
-  print("Project path: " .. project_root)
+  print("Project path: " .. project_path)
   print("Log file: " .. log_file)
 
-  -- List directories before deletion for verification
-  os.execute("ls -l " .. project_root .. " | tee -a " .. log_file)
+  os.execute("ls -l " .. project_path .. " | tee -a " .. log_file)
 
-  -- Execute the clean command
-  local clean_command = "rm -rf " .. project_root .. "/Binaries " ..
-                        project_root .. "/Intermediate " ..
-                        project_root .. "/Saved " ..
-                        project_root .. "/.vscode " ..
-                        project_root .. "/" .. project_name .. ".code-workspace" ..
+  local clean_command = "rm -rf " .. project_path .. "/Binaries " ..
+                        project_path .. "/Intermediate " ..
+                        project_path .. "/Saved " ..
+                        project_path .. "/.vscode " ..
+                        project_path .. "/DerivedDataCache " ..
+                        project_path .. "/" .. project_name .. ".code-workspace" ..
                         " | tee -a " .. log_file
   print("Executing command: " .. clean_command)
   local result = os.execute(clean_command)
-  print("Clean command executed with result: " .. tostring(result))
 
-  -- List directories after deletion for verification
-  os.execute("ls -l " .. project_root .. " | tee -a " .. log_file)
+  if result then
+    log_message("Clean command executed successfully.")
+  else
+    log_message("Clean command failed.")
+  end
 
-  current_step = current_step + 1
   progress(current_step, total_steps)
-
-  current_step = current_step + 1
-  progress(current_step, total_steps)
-
-  local start_time = os.time()
-  local end_time = os.time()
-  log_message("Total script execution time: " .. os.difftime(end_time, start_time) .. " seconds")
-
-  log_message("Clean command executed.")
-  log.log_trashcollector()
 end
 
 return M
