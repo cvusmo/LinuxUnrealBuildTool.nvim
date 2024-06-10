@@ -49,6 +49,7 @@ function M.clean(args)
     log.log_message("Clean command failed.")
   end
 
+  current_step = total_steps
   progress.update(current_step)
 end
 
