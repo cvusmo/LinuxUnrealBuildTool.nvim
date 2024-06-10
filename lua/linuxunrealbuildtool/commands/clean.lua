@@ -28,10 +28,20 @@ function M.clean(args)
   log.log_trashcollector()
 
   log_message("Cleaning previous build...")
-  local clean_command = "rm -rf " .. project_path .. "/{Binaries,Intermediate,Saved,.vscode," .. project_name .. ".code-workspace} | tee -a " .. log_file
+  print("Project path: " .. project_path)
+  print("Log file: " .. log_file)
+
+  local clean_command = "rm -rf " .. project_path .. "/Binaries " ..
+                        project_path .. "/Intermediate " ..
+                        project_path .. "/Saved " ..
+                        project_path .. "/.vscode " ..
+                        project_path .. "/" .. project_name .. ".code-workspace" ..
+                        " | tee -a " .. log_file
   print("Executing command: " .. clean_command)
-  os.execute(clean_command)
-  print("Clean command executed.")
+  local result = os.execute(clean_command)
+  print("Clean command executed with result: " .. tostring(result))
+
+  log_message("Clean command executed.")
 end
 
 return M
