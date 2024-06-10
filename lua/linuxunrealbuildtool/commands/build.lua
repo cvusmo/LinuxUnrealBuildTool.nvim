@@ -25,7 +25,7 @@ function M.build(args)
      or not paths.generate_project_files then
       print("Error: One or more required scripts not found.")
       return
-  end
+    end
 
   local project_path = config.project_root .. "/" .. project_name
   local log_suffix = "Build"
@@ -53,9 +53,9 @@ function M.build(args)
   run_step(paths.update_deps, "Running UpdateDeps.sh")
 
   log_message("Generating project files and Makefile...")
-  local gpf_command = "pgrep -f UnrealBuildTool | xargs kill -9 && " ..
-                      paths.unreal_build_tool .. " -projectfiles -project="
-                      .. project_path .. "/" .. project_name ..
+  local gpf_command = "pgrep -f UnrealBuildTool | xargs kill -9 && " .. 
+                      paths.unreal_build_tool .. " -projectfiles -project=" 
+                      .. project_path .. "/" .. project_name .. 
                       ".uproject -game -makefile | tee -a " .. log_file
   os.execute(gpf_command)
 
@@ -68,5 +68,3 @@ function M.build(args)
 
   log.log_trashcollector()
 end
-
-return M

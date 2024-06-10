@@ -10,7 +10,7 @@ function M.setup(log_suffix)
   end
 
   if log_dir then
-  os.execute("mkdir -p " .. log_dir)
+    os.execute("mkdir -p " .. log_dir)
   else
     print("Error: log_dir is nil")
   end
@@ -46,6 +46,10 @@ function M.log_trashcollector()
   else
     print("Error: log_dir is nil")
   end
+end
+
+function M.get_log_file()
+  return log_file
 end
 
 return M
