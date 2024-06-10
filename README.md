@@ -1,15 +1,20 @@
 # LinuxUnrealBuildTool
 
-Welcome to Linux Unreal Build Tool by cvusmo. LinuxUnrealBuildTool is a work in progress aimed at enhancing the Unreal Engine development experience on Linux, specifically integrated with Neovim. The plugin offers a simple yet powerful set of commands to streamline common tasks:
+<a href="https://dotfyle.com/plugins/cvusmo/LinuxUnrealBuildTool.nvim">
+	<img src="https://dotfyle.com/plugins/cvusmo/LinuxUnrealBuildTool.nvim/shield?style=flat" />
+</a>
+
+Linux Unreal Build Tool is a work in progress aimed at enhancing the Unreal Engine development experience on Linux, specifically integrated with Neovim. The plugin offers a simple yet powerful set of commands to streamline common tasks:
 
 ### Features:
 
-- **Clean:** Remove previous build artifacts to ensure a fresh start.
-- **Build:** Compile your project efficiently.
-- **Rebuild:** Clean and build your project in one step.
-- **Create New Blank C++ Projects:** Quickly set up new C++ projects.
-- **Install Plugins:** Easily manage and install plugins.
+## Project Tasks
 
+- [x] **Clean:** Remove previous build artifacts to ensure a fresh start.
+- [x] **Build:** Compile your project efficiently.
+- [x] **Rebuild:** Clean and build your project in one step.
+- [ ] **Create New Blank C++ Projects:** Quickly set up new C++ projects.
+- [x] **Install Plugins:** Easily manage and install plugins.
 ### Usage
 
 All functionalities are accessible via commands in Neovim, making it an ideal tool for developers who prefer a terminal-based workflow.
@@ -45,18 +50,16 @@ This guide is designed to be simple and easy to follow. I would recommend readin
 
 With that out of the way, I'm moving away from IDE's and wanting to develop with neovim. Part of that is creating plugins like this to help make things a bit easier. If you encounter issues or need to install these dependencies on another distribution, or to contribute to the plugin, open an issue:
 
-```
 - Navigate to https://www.github.com/cvusmo/linuxunrealbuildtool.nvim
 - Click on the "Issues" tab.
 - Click "New issue".
 - Fill in the title and provide any relevant information or questions.
 - Click "Submit new issue".
-```
 
 ### Dependencies:
 
 ```
-git base-devel clang cmake ispc dotnet-runtime-6.0 neovim
+git base-devel clang cmake ispc dotnet-runtime-6.0 neovim bear
 ```
 
 Arch:
@@ -81,7 +84,11 @@ sudo zypper install git gcc gcc-c++ make automake cmake clang ispc dotnet-runtim
 ```
 
 ## Section I 
-Build from Source
+Building Unreal Engine from Source for Linux. 
+Skip this section if you already have built Unreal Engine from source.
+
+Before you follow Section I instructions, please follow the guide from Epic Games on how to get access to Unreal Engine source code:
+[Unreal Engine 5.4 Documentation - How to download source code](https://dev.epicgames.com/documentation/en-us/unreal-engine/downloading-unreal-engine-source-code?application_version=5.4)
 
 1a. check for existing ssh key
 ```
@@ -185,6 +192,12 @@ git clone -b 5.4 git@github.com:EpicGames/UnrealEngine; and cd UnrealEngine
 make -j1
 ```
 
+Build error: "Unable to read module manifest" 
+```
+./Engine/Build/BatchFiles/Linux/Build.sh UnrealEditor Linux Development -clean
+./Engine/Build/BatchFiles/Linux/Build.sh UnrealEditor Linux Development
+```
+
 3a. create blank C++ project
 
 ```
@@ -194,4 +207,14 @@ cd /home/$USER/PATH/TO/HERE/UnrealEngine/Engine/Binaries/Linux
 ## Section II 
 Neovim Integration
 
-@TODO
+## Commands
+
+| Command                | Description                      | Arguments       |
+| ---------------------- | -------------------------------- | --------------- |
+| `:LUBT Clean`          | Cleans the project               | `<ProjectName>` |
+| `:LUBT Build`          | Builds the project               | `<ProjectName>` |
+| `:LUBT Rebuild`        | Rebuilds the project             | `<ProjectName>` |
+| `:LUBT Run`            | Runs the project                 | `<ProjectName>` |
+| `:LUBT CreateProject`  | Creates a new project            | `<ProjectName>` |
+| `:LUBT InstallPlugins` | Installs plugins for the project | `<ProjectName>` |
+| `:LUBT Help`           | Shows the help message           | None            |
