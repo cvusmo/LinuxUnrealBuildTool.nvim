@@ -39,7 +39,6 @@ vim.api.nvim_create_user_command("LUBT", function(opts)
 end, { nargs = "*" })
 
 local function setup()
-  print("Configuring :LUBT commands")
 end
 
 return {
