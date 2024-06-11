@@ -11,10 +11,10 @@ Linux Unreal Build Tool is a work in progress aimed at enhancing the Unreal Engi
 ## Project Tasks
 
 - [x] **Clean:** Remove previous build artifacts to ensure a fresh start.
-- [x] **Build:** Compile your project efficiently.
-- [x] **Rebuild:** Clean and build your project in one step.
+- [ ] **Build:** Compile your project efficiently.
+- [ ] **Rebuild:** Clean and build your project in one step.
 - [ ] **Create New Blank C++ Projects:** Quickly set up new C++ projects.
-- [x] **Install Plugins:** Easily manage and install plugins.
+- [ ] **Install Plugins:** Easily manage and install plugins.
 ### Usage
 
 All functionalities are accessible via commands in Neovim, making it an ideal tool for developers who prefer a terminal-based workflow.
