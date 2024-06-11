@@ -11,7 +11,7 @@ Linux Unreal Build Tool is a work in progress aimed at enhancing the Unreal Engi
 ## Project Tasks
 
 - [x] **Clean:** Remove previous build artifacts to ensure a fresh start.
-- [ ] **Build:** Compile your project efficiently.
+- [x] **Build:** Compile your project efficiently.
 - [ ] **Rebuild:** Clean and build your project in one step.
 - [ ] **Create New Blank C++ Projects:** Quickly set up new C++ projects.
 - [ ] **Install Plugins:** Easily manage and install plugins.
