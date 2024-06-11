@@ -1,7 +1,5 @@
 local M = {}
 
-local notify = require("notify")
-vim.notify = notify
 local config = require("linuxunrealbuildtool.config")
 local path = require("linuxunrealbuildtool.path")
 local log = require("linuxunrealbuildtool.log")
@@ -21,7 +19,6 @@ local function setup(user_config)
   init_paths()
   log.setup("log_suffix", config.project_root)
   commands.setup()
-  notify("Configuring LinuxUnrealBuildTool")
 end
 
 M.setup = setup
