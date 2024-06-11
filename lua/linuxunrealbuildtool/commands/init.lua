@@ -26,7 +26,7 @@ vim.api.nvim_create_user_command("LUBT", function(opts)
   elseif command == "Rebuild" then
     require("linuxunrealbuildtool.commands.rebuild").rebuild(args)
   elseif command == "Run" then
-    require("linuxunrealbuildtool.commands.run_project").run_project(args)
+    require("linuxunrealbuildtool.commands.run_project").run(args)
   elseif command == "CreateProject" then
     require("linuxunrealbuildtool.commands.create_project").create_project(args)
   elseif command == "InstallPlugins" then
