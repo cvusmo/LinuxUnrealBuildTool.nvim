@@ -5,31 +5,27 @@ local progress = require("linuxunrealbuildtool.progress")
 
 local M = {}
 
--- f(logmessage)
+-- f(log_message)
 local function log_message(message)
   log.log_message(message)
 end
 
--- f(build)
+-- f(run)
 function M.run(args)
   local project_name = args[1]
   if not project_name then
-    print(":LUBT Run <ProjectName>")
+    log_message(":LUBT Run <ProjectName>")
     return
   end
 
   local paths = path.init_paths()
-  if not paths.unreal_build_tool
-     or not paths.unreal_editor
-     or not paths.fix_dependency_files
-     or not paths.update_deps
-     or not paths.generate_project_files then
-      print("Error: One or more required scripts not found.")
-      return
-    end
+  if not paths.unreal_editor then
+    log_message("Error: Unreal Editor binary not found.")
+    return
+  end
 
   local project_path = config.get_paths().project_root .. "/" .. project_name
-  local log_suffix = "Run"
+  local log_suffix = "RunProject"
   log.setup(log_suffix, project_path)
   local log_file = log.get_log_file()
 
@@ -37,15 +33,13 @@ function M.run(args)
 
   local target_file = project_path .. "/Binaries/Linux/" .. project_name .. "Editor.target"
   if not vim.fn.filereadable(target_file) then
-    log_message("Target file " .. target_file .. " does not exist. Please build the project.")
-    print("Target file " .. target_file .. " does not exist. Please build the project.")
+    log_message("Target file " .. target_file .. " does not exist. Please build the project first.")
     return
   end
 
   local uproject_file = project_path .. "/" .. project_name .. ".uproject"
   if not vim.fn.filereadable(uproject_file) then
     log_message("Project file " .. uproject_file .. " does not exist.")
-    print("Project file " .. uproject_file .. " does not exist.")
     return
   end
 
@@ -53,7 +47,6 @@ function M.run(args)
   log.run_command(paths.unreal_editor .. " " .. uproject_file .. " | tee -a " .. log_file)
 
   log_message("Project " .. project_name .. " started.")
-  print("Project " .. project_name .. " started.")
 
   log.log_trashcollector()
 end
