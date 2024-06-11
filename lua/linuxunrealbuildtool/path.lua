@@ -1,3 +1,5 @@
+local config = require("linuxunrealbuildtool.config")
+
 local M = {}
 
 -- f(searchpaths)
@@ -13,19 +15,20 @@ end
 
 -- f(initializepaths)
 function M.init_paths()
+  local paths_config = config.get_paths()
   local search_paths = {
-    os.getenv("HOME") .. "/Projects/remote/UnrealEngine/Engine/Build/BatchFiles",
-    os.getenv("HOME") .. "/Projects/remote/UnrealEngine/Engine/Build/BatchFiles/Linux",
-    os.getenv("HOME") .. "/Projects/remote/UnrealEngine/Engine/Binaries/Linux",
-    os.getenv("HOME") .. "/Projects/remote"
+    paths_config.unreal_engine_path .. "/Engine/Build/BatchFiles",
+    paths_config.unreal_engine_path .. "/Engine/Build/BatchFiles/Linux",
+    paths_config.unreal_engine_path .. "/Engine/Binaries/Linux",
+    paths_config.project_root
   }
 
   local paths = {
     unreal_build_tool = M.find("BuildUBT.sh", search_paths),
-    setup = M.find("Setup.sh", search_paths),
     fix_dependency_files = M.find("FixDependencyFiles.sh", search_paths),
     update_deps = M.find("UpdateDeps.sh", search_paths),
-    generate_project_files = M.find("GenerateProjectFiles.sh", search_paths)
+    generate_project_files = M.find("GenerateProjectFiles.sh", search_paths),
+    unreal_editor = M.find("UnrealEditor", search_paths)
   }
 
   for key, path in pairs(paths) do
