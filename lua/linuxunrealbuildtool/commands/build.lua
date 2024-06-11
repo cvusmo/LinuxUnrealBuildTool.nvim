@@ -11,7 +11,7 @@ local function log_message(message)
 end
 
 -- f(terminate_conflicting_ubt)
-local function terminate_conflicting_ubt()  
+local function terminate_conflicting_ubt()
   log.log_message("Terminating conflicting UBT...")
   os.execute("pgrep -f UnrealBuildTool | xargs -r kil -9")
 end
@@ -36,7 +36,7 @@ function M.build(args)
 
   local project_path = config.get_paths().project_root .. "/" .. project_name
   local log_suffix = "Build"
-  log.setup(log_suffix)
+  log.setup(log_suffix, project_path)
   local log_file = log.get_log_file()
 
   log.log_trashcollector()
@@ -46,14 +46,7 @@ function M.build(args)
 
   progress.init(total_steps, project_path, log_suffix)
 
-  local start_time = os.time()
-
   log_message("Building project...")
-
-  local function run_step(step_script, step_name)
-    log_message(step_name)
-    os.execute(step_script .. " | tee -a " .. log_file)
-  end
 
   local start_time = os.time()
 
@@ -63,7 +56,7 @@ function M.build(args)
   progress.update(current_step)
 
   log_message("Updating dependencies...")
-  os.execute(paths.update_deps .. " | tee -a " log_file)
+  os.execute(paths.update_deps .. " | tee -a " .. log_file)
   current_step = current_step + 1
 
   log_message("Generating project files...")
