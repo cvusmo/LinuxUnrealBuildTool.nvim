@@ -21,7 +21,7 @@ local function setup(user_config)
   init_paths()
   log.setup("log_suffix", config.project_root)
   commands.setup()
-  vim.notify("Configuring LinuxUnrealBuildTool", vim.log.levels.INFO)
+  vim.notify("Configuring LinuxUnrealBuildTool")
 end
 
 M.setup = setup
