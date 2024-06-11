@@ -13,7 +13,7 @@ end
 -- f(terminate_conflicting_ubt)
 local function terminate_conflicting_ubt()
   log.log_message("Terminating conflicting UBT...")
-  os.execute("pgrep -f UnrealBuildTool | xargs -r kil -9")
+  log.execute_command("pgrep -f UnrealBuildTool | xargs -r kil -9")
 end
 
 -- f(build)
@@ -51,19 +51,19 @@ function M.build(args)
   local start_time = os.time()
 
   log_message("Fixing dependency files...")
-  os.execute(paths.fix_dependency_files .. " | tee -a " .. log_file)
+  log.execute_command(paths.fix_dependency_files .. " | tee -a " .. log_file)
   current_step = current_step + 1
   progress.update(current_step)
 
   log_message("Updating dependencies...")
-  os.execute(paths.update_deps .. " | tee -a " .. log_file)
+  log.execute_command(paths.update_deps .. " | tee -a " .. log_file)
   current_step = current_step + 1
 
   log_message("Generating project files...")
   terminate_conflicting_ubt()
   local gpf_command = paths.generate_project_files .. " -project=\"" .. project_path ..
                       "/" .. project_name .. ".uproject\" -game -makefile | tee -a " .. log_file
-  local result = os.execute(gpf_command)
+  local result = log.execute_command(gpf_command)
   if result ~= 0 then
     log_message("Generating project files failed.")
     return
@@ -75,7 +75,7 @@ function M.build(args)
   terminate_conflicting_ubt()
   local makefile_command = paths.unreal_build_tool .. " -projectfiles -project=\"" .. project_path ..
                           "/" .. project_name .. ".uproject\" -game -makefile | tee -a " .. log_file
-  result = os.execute(makefile_command)
+  result = log.execute_command(makefile_command)
   if result ~= 0 then
     log_message("Generating Makefiles failed.")
     return
@@ -86,7 +86,7 @@ function M.build(args)
   log_message("Building " .. project_name .. "Editor...")
   terminate_conflicting_ubt()
   local build_command = "cd " .. project_path .. " && make VERBOSE=1 " .. project_name .. "Editor | tee -a " .. log_file
-  result = os.execute(build_command)
+  result = log.execute_command(build_command)
   if result ~= 0 then
     log_message("Building " .. project_name .. "Editor failed.")
     return

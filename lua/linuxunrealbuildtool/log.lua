@@ -51,4 +51,24 @@ function M.log_trashcollector()
   end
 end
 
+-- f(execute_command)
+function M.execute_command(command)
+  local handle = io.popen(command)
+  local result = handle:read("*a")
+  handle:close()
+
+  local time_stamp = os.date("%Y-%m-%d %H:%M:%S")
+  local log_entry = time_stamp .. " - " .. result
+  local log_command = string.format("echo '%s' | tee -a %s", log_entry, log_file)
+
+  if log_file then
+    os.execute(log_command)
+    print(result)
+  else
+    print("Error: log_file is nil")
+  end
+
+  return result
+end
+
 return M
