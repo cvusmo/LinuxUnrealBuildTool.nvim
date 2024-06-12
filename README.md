@@ -1,5 +1,7 @@
 # LinuxUnrealBuildTool
 
+[![cvusmo's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/cvusmo/github-readme-stats)
+
 <a href="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool"><img src="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool"><img src="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool"><img src="https://dotfyle.com/blacksheepcosmo/linuxunrealbuildtoolnvim-lua-linuxunrealbuildtool/badges/plugin-manager?style=flat" /></a>
