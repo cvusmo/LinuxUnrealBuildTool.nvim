@@ -35,7 +35,7 @@ function M.run(args)
 
   progress.init(total_steps, project_path, log_suffix)
 
-  local project_editor = project_path .. "/Binaries/Linux/" .. project_name .. "Editor"
+  local project_editor = project_path .. "/Binaries/Linux/" .. project_name
   if vim.fn.filereadable(project_editor) == 0 then
     log_message("Project editor " .. project_editor .. " does not exist. Please build the project first.")
     return
