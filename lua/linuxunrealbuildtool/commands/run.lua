@@ -30,15 +30,21 @@ function M.run(args)
   log.log_trashcollector()
 
   local target_file = project_path .. "/Binaries/Linux/" .. project_name .. "Editor.target"
-  if vim.fn.filereadable(target_file) == 0 then
+  local file1 = io.open(project_path, "r")
+  if not file1 then
     log_message("Target file " .. target_file .. " does not exist. Please build the project first.")
     return
+  else
+    file1:close()
   end
 
   local uproject_file = project_path .. "/" .. project_name .. ".uproject"
-  if vim.fn.filereadable(uproject_file) == 0 then
+  local file = io.open(uproject_file, "r")
+  if not file then
     log_message("Project file " .. uproject_file .. " does not exist.")
     return
+  else
+    file:close()
   end
 
   log_message("Starting Project " .. project_name .. "...")
