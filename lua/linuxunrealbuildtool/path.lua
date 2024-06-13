@@ -28,7 +28,8 @@ function M.init_paths()
     fix_dependency_files = M.find("FixDependencyFiles.sh", search_paths),
     update_deps = M.find("UpdateDeps.sh", search_paths),
     generate_project_files = M.find("GenerateProjectFiles.sh", search_paths),
-    unreal_editor = M.find("UnrealEditor", search_paths)
+    unreal_editor = M.find("UnrealEditor", search_paths),
+    current_project = paths_config.project_root
   }
 
   for key, path in pairs(paths) do

@@ -1,6 +1,5 @@
 local log = require("linuxunrealbuildtool.log")
 local path = require("linuxunrealbuildtool.path")
-local config = require("linuxunrealbuildtool.config")
 
 local M = {}
 
@@ -23,7 +22,7 @@ function M.run(args)
     return
   end
 
-  local project_path = config.get_paths().project_root .. "/" .. project_name
+  local project_path = paths.current_project .. "/" .. project_name
   local log_suffix = "RunProject"
   log.setup(log_suffix, project_path)
   local log_file = log.get_log_file()
@@ -31,21 +30,27 @@ function M.run(args)
   log.log_trashcollector()
 
   local target_file = project_path .. "/Binaries/Linux/" .. project_name .. "Editor.target"
-  if vim.fn.filereadable(target_file) == 0 then
+  local file1 = io.open(project_path, "r")
+  if not file1 then
     log_message("Target file " .. target_file .. " does not exist. Please build the project first.")
     return
+  else
+    file1:close()
   end
 
   local uproject_file = project_path .. "/" .. project_name .. ".uproject"
-  if vim.fn.filereadable(uproject_file) == 0 then
+  local file = io.open(uproject_file, "r")
+  if not file then
     log_message("Project file " .. uproject_file .. " does not exist.")
     return
+  else
+    file:close()
   end
 
   log_message("Starting Project " .. project_name .. "...")
-  local command = paths.unreal_editor .. " \"" .. uproject_file .. "\" | tee -a " .. log_file
-  local result = os.execute(command)
-
+  local run_command = paths.unreal_editor .. " \"" .. uproject_file .. "\" | tee -a " .. log_file
+  local result = log.execute_command(run_command)
+  
   if result == 0 then
     log_message("Project " .. project_name .. " started.")
   else
